@@ -1,0 +1,131 @@
+import React from "react";
+
+interface LogoProps {
+  size?: number;
+  className?: string;
+}
+
+export const Logo: React.FC<LogoProps> = ({ size = 64, className = "" }) => {
+  return (
+    <svg
+      viewBox="0 0 64 64"
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      className={className}
+    >
+      {/* Background circle with modern gradient */}
+      <defs>
+        <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style={{ stopColor: "#4f46e5", stopOpacity: 1 }} />
+          <stop
+            offset="100%"
+            style={{ stopColor: "#7c3aed", stopOpacity: 1 }}
+          />
+        </linearGradient>
+        <linearGradient
+          id="calendarGradient"
+          x1="0%"
+          y1="0%"
+          x2="100%"
+          y2="100%"
+        >
+          <stop
+            offset="0%"
+            style={{ stopColor: "#ffffff", stopOpacity: 0.95 }}
+          />
+          <stop
+            offset="100%"
+            style={{ stopColor: "#f8f9fa", stopOpacity: 0.9 }}
+          />
+        </linearGradient>
+        <filter id="shadow">
+          <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.15" />
+        </filter>
+      </defs>
+
+      {/* Main background circle */}
+      <circle
+        cx="32"
+        cy="32"
+        r="30"
+        fill="url(#bgGradient)"
+        filter="url(#shadow)"
+      />
+
+      {/* Calendar/Booking interface */}
+      {/* Main calendar body */}
+      <rect
+        x="18"
+        y="22"
+        width="28"
+        height="24"
+        rx="3"
+        fill="url(#calendarGradient)"
+        stroke="#e2e8f0"
+        strokeWidth="0.5"
+      />
+
+      {/* Calendar header */}
+      <rect x="18" y="22" width="28" height="6" rx="3" fill="#1e293b" />
+      <rect x="18" y="25" width="28" height="3" fill="#1e293b" />
+
+      {/* Calendar rings/bindings */}
+      <rect x="22" y="19" width="2" height="6" rx="1" fill="#64748b" />
+      <rect x="26" y="19" width="2" height="6" rx="1" fill="#64748b" />
+      <rect x="36" y="19" width="2" height="6" rx="1" fill="#64748b" />
+      <rect x="40" y="19" width="2" height="6" rx="1" fill="#64748b" />
+
+      {/* Calendar grid/dates */}
+      {/* Week 1 */}
+      <rect x="21" y="30" width="3" height="3" rx="0.5" fill="#e2e8f0" />
+      <rect x="26" y="30" width="3" height="3" rx="0.5" fill="#e2e8f0" />
+      <rect x="31" y="30" width="3" height="3" rx="0.5" fill="#e2e8f0" />
+      <rect x="36" y="30" width="3" height="3" rx="0.5" fill="#e2e8f0" />
+      <rect x="41" y="30" width="3" height="3" rx="0.5" fill="#e2e8f0" />
+
+      {/* Week 2 */}
+      <rect x="21" y="35" width="3" height="3" rx="0.5" fill="#e2e8f0" />
+      <rect x="26" y="35" width="3" height="3" rx="0.5" fill="#ef4444" />
+      <rect x="31" y="35" width="3" height="3" rx="0.5" fill="#e2e8f0" />
+      <rect x="36" y="35" width="3" height="3" rx="0.5" fill="#ef4444" />
+      <rect x="41" y="35" width="3" height="3" rx="0.5" fill="#e2e8f0" />
+
+      {/* Week 3 */}
+      <rect x="21" y="40" width="3" height="3" rx="0.5" fill="#e2e8f0" />
+      <rect x="26" y="40" width="3" height="3" rx="0.5" fill="#e2e8f0" />
+      <rect x="31" y="40" width="3" height="3" rx="0.5" fill="#e2e8f0" />
+      <rect x="36" y="40" width="3" height="3" rx="0.5" fill="#e2e8f0" />
+      <rect x="41" y="40" width="3" height="3" rx="0.5" fill="#e2e8f0" />
+
+      {/* Booking confirmation checkmark */}
+      <circle cx="48" cy="18" r="7" fill="#10b981" />
+      <path
+        d="M44 18 L47 21 L52 15"
+        stroke="white"
+        strokeWidth="2"
+        fill="none"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+
+      {/* Bed/accommodation icon in corner */}
+      <g transform="translate(16,48) scale(0.7)">
+        <rect
+          x="0"
+          y="4"
+          width="12"
+          height="6"
+          rx="1"
+          fill="#64748b"
+          opacity="0.8"
+        />
+        <rect x="1" y="2" width="10" height="4" rx="2" fill="#94a3b8" />
+        <circle cx="3" cy="4" r="1" fill="#64748b" />
+        <circle cx="9" cy="4" r="1" fill="#64748b" />
+      </g>
+    </svg>
+  );
+};
+
+export default Logo;
